@@ -9,13 +9,15 @@
   <style>
 
     :root {
-      --green-dark:#03180f;
-      --green:#0d3d25;
-      --orange:#e86614;
-      --cream:#fff0cf;
-      --gold:#d4b45a;
+      --green-dark:#050505;
+      --green:#111111;
+      --orange:#c99542;
+      --cream:#f3e6cc;
+      --gold:#d9ad63;
       --white:#ffffff;
-      --black:#050706;
+      --black:#020202;
+      --bronze:#8c5c2e;
+      --charcoal:#171717;
     }
 
     * {
@@ -29,14 +31,19 @@
 
       background:
         radial-gradient(
-          circle at top,
-          rgba(29,106,61,.15),
-          transparent 32%
+          circle at 18% 5%,
+          rgba(201,149,66,.10),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 82% 12%,
+          rgba(140,92,46,.08),
+          transparent 24%
         ),
         linear-gradient(
           180deg,
-          #07150f 0%,
-          #020806 100%
+          #0b0b0b 0%,
+          #020202 100%
         );
 
       color:var(--cream);
@@ -58,7 +65,7 @@
       top:0;
       z-index:1000;
 
-      background:rgba(2,18,11,.97);
+      background:rgba(3,3,3,.97);
 
       border-bottom:
         1px solid rgba(232,102,20,.35);
@@ -136,17 +143,39 @@
       border-bottom:
         1px solid rgba(212,180,90,.55);
 
+      overflow:hidden;
+
       background:
         radial-gradient(
-          circle at 25% 40%,
-          rgba(212,180,90,.12),
-          transparent 30%
+          circle at 24% 44%,
+          rgba(201,149,66,.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 78% 42%,
+          rgba(140,92,46,.10),
+          transparent 24%
         ),
         linear-gradient(
           135deg,
-          #06140d,
-          #0d291a 55%,
-          #050b08
+          #080808,
+          #15120d 52%,
+          #050505
+        );
+    }
+
+    .team-hero:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,.012) 0,
+          rgba(255,255,255,.012) 1px,
+          transparent 1px,
+          transparent 13px
         );
     }
 
@@ -159,7 +188,7 @@
       display:grid;
 
       grid-template-columns:
-        330px 1fr;
+        390px 1fr;
 
       gap:50px;
 
@@ -171,14 +200,15 @@
     }
 
     .team-logo img {
-      width:300px;
-      height:300px;
+      width:355px;
+      height:355px;
+      max-width:100%;
 
       object-fit:contain;
 
       filter:
         drop-shadow(
-          0 18px 28px rgba(0,0,0,.45)
+          0 22px 34px rgba(0,0,0,.72)
         );
     }
 
@@ -293,8 +323,8 @@
       background:
         linear-gradient(
           180deg,
-          #133d28 0%,
-          #071a11 100%
+          #17130d 0%,
+          #080706 100%
         );
 
       border-left:
@@ -352,7 +382,7 @@
         59px solid transparent;
 
       border-top:
-        25px solid #071a11;
+        25px solid #080706;
     }
 
     .banner-year {
@@ -423,8 +453,8 @@
       background:
         linear-gradient(
           180deg,
-          rgba(8,55,34,.96),
-          rgba(3,25,15,.97)
+          rgba(20,20,20,.98),
+          rgba(7,7,7,.99)
         );
 
       border:
@@ -615,6 +645,126 @@
     }
 
 
+
+    /* =====================================================
+       OFFICIAL UNIFORMS
+       ===================================================== */
+
+    .uniform-section {
+      margin-top:24px;
+      position:relative;
+      overflow:hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 18%,
+          rgba(201,149,66,.10),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #0d0c0a,
+          #050505
+        );
+
+      border:
+        1px solid rgba(201,149,66,.58);
+
+      border-radius:11px;
+
+      box-shadow:
+        0 18px 34px rgba(0,0,0,.28);
+    }
+
+    .uniform-section:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,.012) 0,
+          rgba(255,255,255,.012) 1px,
+          transparent 1px,
+          transparent 12px
+        );
+    }
+
+    .uniform-heading {
+      position:relative;
+      z-index:2;
+
+      text-align:center;
+
+      padding:
+        23px 20px 8px;
+    }
+
+    .uniform-kicker {
+      color:var(--orange);
+
+      font-size:.72rem;
+
+      font-weight:1000;
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      margin-bottom:6px;
+    }
+
+    .uniform-heading h2 {
+      color:white;
+
+      text-transform:uppercase;
+
+      font-size:
+        clamp(
+          1.8rem,
+          4vw,
+          2.7rem
+        );
+
+      letter-spacing:1px;
+    }
+
+    .uniform-heading p {
+      margin-top:7px;
+
+      color:#ad9b7d;
+
+      font-size:.86rem;
+    }
+
+    .uniform-image-wrap {
+      position:relative;
+      z-index:2;
+
+      padding:
+        4px 18px 20px;
+    }
+
+    .uniform-image {
+      width:100%;
+
+      max-height:760px;
+
+      object-fit:contain;
+
+      display:block;
+
+      margin:auto;
+
+      filter:
+        drop-shadow(
+          0 20px 34px rgba(0,0,0,.48)
+        );
+    }
+
+
     /* =====================================================
        FOOTER
        ===================================================== */
@@ -646,6 +796,12 @@
       .team-hero-inner {
         grid-template-columns:1fr;
         text-align:center;
+        gap:22px;
+      }
+
+      .team-logo img {
+        width:310px;
+        height:310px;
       }
 
       .grid {
@@ -684,8 +840,8 @@
     @media(max-width:520px) {
 
       .team-logo img {
-        width:245px;
-        height:245px;
+        width:255px;
+        height:255px;
       }
 
       .banner-zone {
@@ -1107,6 +1263,43 @@
 
 
   </div>
+
+
+
+  <!-- ===================================================
+       OFFICIAL UNIFORMS
+       =================================================== -->
+
+  <section class="uniform-section">
+
+    <div class="uniform-heading">
+
+      <div class="uniform-kicker">
+        Knightmare Equipment Room
+      </div>
+
+      <h2>
+        Official Uniforms
+      </h2>
+
+      <p>
+        The complete Knightmare uniform set.
+      </p>
+
+    </div>
+
+
+    <div class="uniform-image-wrap">
+
+      <img
+        class="uniform-image"
+        src="knightmare-uniforms.png"
+        alt="Knightmare Official Uniforms"
+      >
+
+    </div>
+
+  </section>
 
 </main>
 
