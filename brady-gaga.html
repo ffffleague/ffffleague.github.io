@@ -9,13 +9,18 @@
   <style>
 
     :root {
-      --green-dark:#03180f;
-      --green:#0d3d25;
-      --orange:#e86614;
-      --cream:#fff0cf;
-      --gold:#d4b45a;
+      --green-dark:#05070c;
+      --green:#0a1630;
+      --orange:#d21f2b;
+      --cream:#f3f4f7;
+      --gold:#c8cbd2;
       --white:#ffffff;
-      --black:#050706;
+      --black:#030407;
+      --navy:#08152c;
+      --navy-light:#14284a;
+      --red:#d21f2b;
+      --silver:#c8cbd2;
+      --muted:#9fa8b8;
     }
 
     * {
@@ -29,14 +34,19 @@
 
       background:
         radial-gradient(
-          circle at top,
-          rgba(29,106,61,.15),
-          transparent 32%
+          circle at 18% 5%,
+          rgba(210,31,43,.10),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 82% 10%,
+          rgba(62,95,150,.10),
+          transparent 24%
         ),
         linear-gradient(
           180deg,
-          #07150f 0%,
-          #020806 100%
+          #07101f 0%,
+          #02040a 100%
         );
 
       color:var(--cream);
@@ -58,7 +68,7 @@
       top:0;
       z-index:1000;
 
-      background:rgba(2,18,11,.97);
+      background:rgba(3,7,15,.97);
 
       border-bottom:
         1px solid rgba(232,102,20,.35);
@@ -131,17 +141,45 @@
       border-bottom:
         1px solid rgba(212,180,90,.55);
 
+      overflow:hidden;
+
       background:
         radial-gradient(
-          circle at 25% 40%,
-          rgba(212,180,90,.12),
-          transparent 30%
+          circle at 24% 44%,
+          rgba(210,31,43,.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 78% 42%,
+          rgba(73,110,174,.15),
+          transparent 26%
         ),
         linear-gradient(
           135deg,
-          #06140d,
-          #0d291a 55%,
-          #050b08
+          #07101f,
+          #0f1d38 52%,
+          #04070e
+        );
+    }
+
+    .team-hero:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          transparent 0%,
+          rgba(0,0,0,.12) 66%,
+          rgba(0,0,0,.35) 100%
+        ),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,.012) 0,
+          rgba(255,255,255,.012) 1px,
+          transparent 1px,
+          transparent 13px
         );
     }
 
@@ -154,7 +192,7 @@
       display:grid;
 
       grid-template-columns:
-        330px 1fr;
+        390px 1fr;
 
       gap:50px;
 
@@ -166,14 +204,15 @@
     }
 
     .team-logo img {
-      width:300px;
-      height:300px;
+      width:355px;
+      height:355px;
+      max-width:100%;
 
       object-fit:contain;
 
       filter:
         drop-shadow(
-          0 18px 28px rgba(0,0,0,.45)
+          0 22px 34px rgba(0,0,0,.72)
         );
     }
 
@@ -288,8 +327,8 @@
       background:
         linear-gradient(
           180deg,
-          #133d28 0%,
-          #071a11 100%
+          #101c35 0%,
+          #050a14 100%
         );
 
       border-left:
@@ -343,7 +382,7 @@
         59px solid transparent;
 
       border-top:
-        25px solid #071a11;
+        25px solid #050a14;
     }
 
     .banner-year {
@@ -413,8 +452,8 @@
       background:
         linear-gradient(
           180deg,
-          rgba(8,55,34,.96),
-          rgba(3,25,15,.97)
+          rgba(12,25,48,.98),
+          rgba(5,10,20,.99)
         );
 
       border:
@@ -605,6 +644,131 @@
     }
 
 
+
+    /* =====================================================
+       OFFICIAL UNIFORMS
+       ===================================================== */
+
+    .uniform-section {
+      margin-top:24px;
+      position:relative;
+      overflow:hidden;
+
+      background:
+        radial-gradient(
+          circle at 22% 18%,
+          rgba(210,31,43,.10),
+          transparent 26%
+        ),
+        radial-gradient(
+          circle at 78% 18%,
+          rgba(73,110,174,.11),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #0a1428,
+          #040812
+        );
+
+      border:
+        1px solid rgba(200,203,210,.42);
+
+      border-radius:11px;
+
+      box-shadow:
+        0 18px 34px rgba(0,0,0,.30);
+    }
+
+    .uniform-section:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(255,255,255,.012) 0,
+          rgba(255,255,255,.012) 1px,
+          transparent 1px,
+          transparent 12px
+        );
+    }
+
+    .uniform-heading {
+      position:relative;
+      z-index:2;
+
+      text-align:center;
+
+      padding:
+        23px 20px 8px;
+    }
+
+    .uniform-kicker {
+      color:var(--red);
+
+      font-size:.72rem;
+
+      font-weight:1000;
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      margin-bottom:6px;
+    }
+
+    .uniform-heading h2 {
+      color:white;
+
+      text-transform:uppercase;
+
+      font-size:
+        clamp(
+          1.8rem,
+          4vw,
+          2.7rem
+        );
+
+      letter-spacing:1px;
+    }
+
+    .uniform-heading p {
+      margin-top:7px;
+
+      color:var(--muted);
+
+      font-size:.86rem;
+    }
+
+    .uniform-image-wrap {
+      position:relative;
+      z-index:2;
+
+      padding:
+        4px 18px 20px;
+    }
+
+    .uniform-image {
+      width:100%;
+
+      max-height:760px;
+
+      object-fit:contain;
+
+      display:block;
+
+      margin:auto;
+
+      filter:
+        drop-shadow(
+          0 20px 34px rgba(0,0,0,.48)
+        );
+    }
+
+
     /* =====================================================
        FOOTER
        ===================================================== */
@@ -636,6 +800,12 @@
       .team-hero-inner {
         grid-template-columns:1fr;
         text-align:center;
+        gap:22px;
+      }
+
+      .team-logo img {
+        width:310px;
+        height:310px;
       }
 
       .grid {
@@ -674,8 +844,8 @@
     @media(max-width:520px) {
 
       .team-logo img {
-        width:245px;
-        height:245px;
+        width:255px;
+        height:255px;
       }
 
       .banner-zone {
@@ -1056,6 +1226,43 @@
 
 
   </div>
+
+
+
+  <!-- ===================================================
+       OFFICIAL UNIFORMS
+       =================================================== -->
+
+  <section class="uniform-section">
+
+    <div class="uniform-heading">
+
+      <div class="uniform-kicker">
+        Brady Gaga Equipment Room
+      </div>
+
+      <h2>
+        Official Uniforms
+      </h2>
+
+      <p>
+        The complete Brady Gaga uniform set.
+      </p>
+
+    </div>
+
+
+    <div class="uniform-image-wrap">
+
+      <img
+        class="uniform-image"
+        src="brady-gaga-uniforms.png"
+        alt="Brady Gaga Official Uniforms"
+      >
+
+    </div>
+
+  </section>
 
 </main>
 
