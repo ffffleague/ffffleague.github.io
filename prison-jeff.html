@@ -8,13 +8,17 @@
 
   <style>
     :root {
-      --green-dark: #03180f;
-      --green: #0d3d25;
-      --orange: #e86614;
-      --cream: #fff0cf;
-      --gold: #d4b45a;
-      --white: #ffffff;
-      --black: #050706;
+      --green-dark:#060309;
+      --green:#12091c;
+      --green-light:#27103b;
+      --orange:#8f42d8;
+      --cream:#f2eafa;
+      --gold:#b56cff;
+      --white:#ffffff;
+      --black:#030204;
+      --skin:#9d4be2;
+      --skin-light:#c78aff;
+      --muted:#aa9ab8;
     }
 
     * {
@@ -26,8 +30,8 @@
     body {
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(29,106,61,.15), transparent 32%),
-        linear-gradient(180deg, #07150f 0%, #020806 100%);
+        radial-gradient(circle at top, rgba(143,66,216,.16), transparent 32%),
+        linear-gradient(180deg, #0b0611 0%, #020103 100%);
       color: var(--cream);
       min-height: 100vh;
     }
@@ -37,11 +41,13 @@
       text-decoration: none;
     }
 
+    /* HEADER */
+
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(2,18,11,.97);
+      background: rgba(5,2,8,.97);
       border-bottom: 1px solid rgba(232,102,20,.35);
     }
 
@@ -99,11 +105,26 @@
       color: var(--orange);
     }
 
+    /* TEAM HERO */
+
     .team-hero {
-      border-bottom: 1px solid rgba(212,180,90,.25);
+      position: relative;
+      border-bottom: 1px solid rgba(212,180,90,.55);
+      overflow:hidden;
       background:
-        radial-gradient(circle at 25% 40%, rgba(212,180,90,.12), transparent 30%),
-        linear-gradient(135deg, #06140d, #0d291a 55%, #050b08);
+        radial-gradient(circle at 24% 42%, rgba(181,108,255,.17), transparent 28%),
+        radial-gradient(circle at 78% 38%, rgba(73,22,112,.22), transparent 30%),
+        linear-gradient(135deg, #050307, #1a0c28 54%, #020103);
+    }
+
+    .team-hero:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,.08) 62%, rgba(0,0,0,.34) 100%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 13px);
     }
 
     .team-hero-inner {
@@ -111,7 +132,7 @@
       margin: auto;
       padding: 50px 20px;
       display: grid;
-      grid-template-columns: 330px 1fr;
+      grid-template-columns: 390px 1fr;
       gap: 50px;
       align-items: center;
     }
@@ -121,8 +142,9 @@
     }
 
     .team-logo img {
-      width: 300px;
-      height: 300px;
+      width: 355px;
+      height: 355px;
+      max-width: 100%;
       object-fit: contain;
       filter: drop-shadow(0 18px 28px rgba(0,0,0,.45));
     }
@@ -167,10 +189,97 @@
       font-weight: 900;
     }
 
+    /* HANGING CHAMPIONSHIP BANNER */
+
+    .banner-zone {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto 10px;
+      min-height: 190px;
+    }
+
+    .banner-rack {
+      position: absolute;
+      top: 0;
+      right: 60px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .champ-banner {
+      position: relative;
+      width: 118px;
+      height: 150px;
+      margin-top: 24px;
+      padding: 19px 10px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, #2b1242 0%, #09040f 100%);
+      border-left: 3px solid var(--gold);
+      border-right: 3px solid var(--gold);
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 12px 24px rgba(0,0,0,.42);
+    }
+
+    .champ-banner:before {
+      content: "";
+      position: absolute;
+      top: -27px;
+      left: 50%;
+      width: 3px;
+      height: 27px;
+      background: var(--gold);
+      transform: translateX(-50%);
+      box-shadow: 0 0 5px rgba(212,180,90,.35);
+    }
+
+    .champ-banner:after {
+      content: "";
+      position: absolute;
+      left: -3px;
+      bottom: -25px;
+      width: 0;
+      height: 0;
+      border-left: 59px solid transparent;
+      border-right: 59px solid transparent;
+      border-top: 25px solid #09040f;
+    }
+
+    .banner-year {
+      color: var(--orange);
+      font-size: 1.55rem;
+      font-weight: 1000;
+      line-height: 1;
+    }
+
+    .banner-league {
+      margin-top: 10px;
+      color: var(--cream);
+      font-size: .73rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .banner-title {
+      margin-top: 5px;
+      color: var(--gold);
+      font-size: .8rem;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .banner-trophy {
+      margin-top: 10px;
+      font-size: 1.25rem;
+    }
+
+    /* PAGE */
+
     .page-shell {
       max-width: 1200px;
       margin: auto;
-      padding: 30px 20px 60px;
+      padding: 10px 20px 60px;
     }
 
     .grid {
@@ -181,7 +290,7 @@
 
     .card {
       background:
-        linear-gradient(180deg, rgba(8,55,34,.96), rgba(3,25,15,.97));
+        linear-gradient(180deg, rgba(30,12,47,.98), rgba(7,3,11,.99));
       border: 1px solid rgba(212,180,90,.5);
       border-radius: 10px;
       overflow: hidden;
@@ -199,6 +308,8 @@
     .card-body {
       padding: 20px;
     }
+
+    /* ROSTER */
 
     .section-label {
       margin: 18px 0 8px;
@@ -234,6 +345,8 @@
       text-align: right;
     }
 
+    /* HISTORY */
+
     .history-grid {
       display: grid;
       grid-template-columns: repeat(2,1fr);
@@ -262,7 +375,7 @@
       letter-spacing: .6px;
     }
 
-    .best-finish-box {
+    .championship-box {
       margin-top: 18px;
       padding: 20px;
       text-align: center;
@@ -271,10 +384,28 @@
       background: rgba(212,180,90,.06);
     }
 
-    .best-finish-box strong {
+    .championship-box .trophy {
+      font-size: 2rem;
+      margin-bottom: 7px;
+    }
+
+    .championship-box strong {
       display: block;
       font-size: 1.4rem;
       color: var(--gold);
+    }
+
+    .shit-king {
+      margin-top: 12px;
+      padding: 14px;
+      text-align: center;
+      border: 1px solid rgba(232,102,20,.28);
+      border-radius: 8px;
+      background: rgba(232,102,20,.05);
+      color: var(--orange);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .5px;
     }
 
     .history-note {
@@ -295,6 +426,84 @@
       font-size: .82rem;
     }
 
+
+    /* =====================================================
+       OFFICIAL UNIFORMS
+       ===================================================== */
+
+    .uniform-section {
+      margin-top:24px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(181,108,255,.12), transparent 27%),
+        radial-gradient(circle at 80% 18%, rgba(73,22,112,.18), transparent 30%),
+        linear-gradient(180deg, #160b22, #030105);
+      border:1px solid rgba(181,108,255,.46);
+      border-radius:11px;
+      box-shadow:0 18px 34px rgba(0,0,0,.32);
+    }
+
+    .uniform-section:before {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 12px);
+    }
+
+    .uniform-heading {
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:23px 20px 8px;
+    }
+
+    .uniform-kicker {
+      color:var(--skin);
+      font-size:.72rem;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:2.5px;
+      margin-bottom:6px;
+    }
+
+    .uniform-heading h2 {
+      color:white;
+      text-transform:uppercase;
+      font-size:clamp(1.8rem,4vw,2.7rem);
+      letter-spacing:1px;
+    }
+
+    .uniform-heading p {
+      margin-top:7px;
+      color:var(--muted);
+      font-size:.86rem;
+    }
+
+    .uniform-image-wrap {
+      position:relative;
+      z-index:2;
+      padding:4px 22px 24px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .uniform-image {
+      width:auto;
+      max-width:100%;
+      height:auto;
+      max-height:820px;
+      object-fit:contain;
+      display:block;
+      margin:auto;
+      filter:drop-shadow(0 20px 34px rgba(0,0,0,.48));
+    }
+
+    /* FOOTER */
+
     .site-footer {
       margin-top: 30px;
       background: #02100a;
@@ -305,10 +514,19 @@
       font-size: .8rem;
     }
 
+    /* RESPONSIVE */
+
     @media (max-width: 850px) {
+
       .team-hero-inner {
         grid-template-columns: 1fr;
         text-align: center;
+        gap:22px;
+      }
+
+      .team-logo img {
+        width:310px;
+        height:310px;
       }
 
       .grid {
@@ -323,44 +541,104 @@
       nav {
         justify-content: center;
       }
+
+      .banner-zone {
+        min-height: 175px;
+      }
+
+      .banner-rack {
+        position: relative;
+        top: 0;
+        right: auto;
+        justify-content: center;
+        padding-top: 0;
+      }
     }
+
+    @media (max-width: 520px) {
+
+      .team-logo img {
+        width:255px;
+        height:255px;
+      }
+
+      .banner-zone {
+        min-height: 155px;
+      }
+
+      .champ-banner {
+        width: 96px;
+        height: 125px;
+        padding: 15px 6px;
+      }
+
+      .champ-banner:after {
+        border-left-width: 48px;
+        border-right-width: 48px;
+      }
+
+      .banner-year {
+        font-size: 1.3rem;
+      }
+
+      .banner-league {
+        font-size: .62rem;
+      }
+
+      .banner-title {
+        font-size: .7rem;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
 <header class="site-header">
+
   <div class="nav-wrap">
 
     <a class="brand" href="index.html">
+
       <img src="FFFFL Logo.png" alt="FFFFL Logo">
 
       <div class="brand-text">
         <span>Florida's Finest</span>
         <span>Fantasy Football League</span>
       </div>
+
     </a>
 
     <nav>
-  <a href="index.html">Home</a>
-  <a href="teams.html">Teams</a>
-  <a href="standings.html">Standings</a>
-  <a href="schedule.html">Schedule</a>
-  <a href="record-book.html">Record Book</a>
-  <a href="history.html">History</a>
-  <a href="mike-hunt.html">Mike Hunt</a>
-  <a href="contenders.html">Contenders</a>
-</nav>
+      <a href="index.html">Home</a>
+      <a href="teams.html">Teams</a>
+      <a href="standings.html">Standings</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="record-book.html">Record Book</a>
+      <a href="history.html">History</a>
+      <a href="mike-hunt.html">Mike Hunt</a>
+      <a href="contenders.html">Contenders</a>
+    </nav>
 
   </div>
+
 </header>
+
+
+<!-- TEAM HERO -->
 
 <section class="team-hero">
 
   <div class="team-hero-inner">
 
     <div class="team-logo">
-      <img src="team-logos/prison-jeff.png" alt="Prison Jeff">
+
+      <img
+        src="team-logos/prison-jeff.png"
+        alt="Prison Jeff"
+      >
+
     </div>
 
     <div>
@@ -378,8 +656,13 @@
       </div>
 
       <div class="live-record">
+
         2026 Record:
-        <span id="liveRecord">Loading...</span>
+
+        <span id="liveRecord">
+          Loading...
+        </span>
+
       </div>
 
     </div>
@@ -388,9 +671,15 @@
 
 </section>
 
+
+<!-- PAGE CONTENT -->
+
 <main class="page-shell">
 
   <div class="grid">
+
+
+    <!-- CURRENT ROSTER -->
 
     <section class="card">
 
@@ -410,6 +699,8 @@
 
     </section>
 
+
+    <!-- FRANCHISE HISTORY -->
 
     <section class="card">
 
@@ -447,23 +738,39 @@
           </div>
 
           <div class="history-box">
-            <strong>0</strong>
-            <span>Championships</span>
+            <strong>6th</strong>
+            <span>Best Finish</span>
           </div>
 
         </div>
 
-        <div class="best-finish-box">
-          <strong>Best Finish: 6th Place</strong>
+
+        <div class="championship-box">
+
+          <div class="trophy">
+            🏅
+          </div>
+
+          <strong>
+            Best Finish: 6th
+          </strong>
+
         </div>
 
+
         <div class="history-note">
+
           Historical franchise records are current through the completion
           of the 2025 FFFFL season. Current-season record and roster data
           are updated live through Sleeper.
+
         </div>
 
-        <a class="back-link" href="teams.html">
+
+        <a
+          class="back-link"
+          href="teams.html"
+        >
           ← Back to all teams
         </a>
 
@@ -473,74 +780,147 @@
 
   </div>
 
+
+  <!-- OFFICIAL UNIFORMS -->
+
+  <section class="uniform-section">
+
+    <div class="uniform-heading">
+
+      <div class="uniform-kicker">
+        Prison Jeff Equipment Room
+      </div>
+
+      <h2>
+        Official Uniforms
+      </h2>
+
+      <p>
+        The complete Prison Jeff uniform set.
+      </p>
+
+    </div>
+
+    <div class="uniform-image-wrap">
+
+      <img
+        class="uniform-image"
+        src="prison-jeff-uniforms.png"
+        alt="Prison Jeff Official Uniforms"
+      >
+
+    </div>
+
+  </section>
+
+
 </main>
 
+
 <footer class="site-footer">
+
   © 2012–2026 Florida's Finest Fantasy Football League
+
 </footer>
+
 
 <script>
 
-  const LEAGUE_ID = "1312020664282025984";
+  const LEAGUE_ID =
+    "1312020664282025984";
+
 
   const TARGET_NAMES = [
+
     "prison jeff",
     "therealjrsmith"
+
   ];
 
+
   const POSITION_ORDER = {
+
     QB: 1,
     RB: 2,
     WR: 3,
     TE: 4,
     DEF: 5,
     K: 6
+
   };
 
+
   function clean(value) {
+
     return String(value || "")
       .toLowerCase()
       .replace(/[™®©]/g, "")
       .replace(/[^a-z0-9 ]/g, " ")
       .replace(/\s+/g, " ")
       .trim();
+
   }
+
 
   function playerName(player) {
+
     return (
+
       player.full_name ||
+
       `${player.first_name || ""} ${player.last_name || ""}`.trim() ||
+
       "Unknown Player"
+
     );
+
   }
+
 
   function positionRank(position) {
+
     return POSITION_ORDER[position] || 99;
+
   }
 
+
   function sortPlayers(list) {
+
     return list.sort((a,b) => {
 
       const difference =
-        positionRank(a.player.position) -
+
+        positionRank(a.player.position)
+
+        -
+
         positionRank(b.player.position);
 
+
       if (difference !== 0) {
+
         return difference;
+
       }
+
 
       return playerName(a.player).localeCompare(
         playerName(b.player)
       );
 
     });
+
   }
+
 
   function playerRow(item) {
 
-    const player = item.player;
+    const player =
+      item.player;
+
 
     return `
+
       <div class="player-row">
 
         <div class="player-pos">
@@ -556,32 +936,50 @@
         </div>
 
       </div>
+
     `;
+
   }
+
 
   function isTargetUser(user) {
 
     const values = [
+
       clean(user?.metadata?.team_name),
+
       clean(user?.display_name),
+
       clean(user?.username)
+
     ];
 
+
     return TARGET_NAMES.some(
-      target => values.includes(clean(target))
+
+      target =>
+        values.includes(
+          clean(target)
+        )
+
     );
+
   }
+
 
   async function loadTeam() {
 
     const liveRecord =
       document.getElementById("liveRecord");
 
+
     const rosterStatus =
       document.getElementById("rosterStatus");
 
+
     const rosterContainer =
       document.getElementById("roster");
+
 
     try {
 
@@ -605,112 +1003,168 @@
 
       ]);
 
+
       if (
         !usersResponse.ok ||
         !rostersResponse.ok ||
         !playersResponse.ok
       ) {
+
         throw new Error(
           "Sleeper returned an error."
         );
+
       }
+
 
       const users =
         await usersResponse.json();
 
+
       const rosters =
         await rostersResponse.json();
+
 
       const players =
         await playersResponse.json();
 
+
       const targetUser =
         users.find(isTargetUser);
 
+
       if (!targetUser) {
+
         throw new Error(
           "Could not locate Prison Jeff in Sleeper."
         );
+
       }
 
+
       const targetRoster =
+
         rosters.find(
+
           roster =>
-            roster.owner_id === targetUser.user_id
+            roster.owner_id ===
+            targetUser.user_id
+
         );
 
+
       if (!targetRoster) {
+
         throw new Error(
           "Could not locate Prison Jeff roster."
         );
+
       }
+
 
       const wins =
         targetRoster.settings?.wins ?? 0;
 
+
       const losses =
         targetRoster.settings?.losses ?? 0;
+
 
       const ties =
         targetRoster.settings?.ties ?? 0;
 
+
       liveRecord.textContent =
+
         `${wins}-${losses}${ties ? `-${ties}` : ""}`;
+
 
       const starterIds =
         targetRoster.starters || [];
 
+
       const rosterIds =
         targetRoster.players || [];
 
+
       const starters = [];
       const bench = [];
+
 
       rosterIds.forEach(playerId => {
 
         const player =
           players[playerId];
 
+
         if (!player) return;
 
+
         const item = {
+
           playerId,
           player
+
         };
 
-        if (starterIds.includes(playerId)) {
+
+        if (
+          starterIds.includes(playerId)
+        ) {
+
           starters.push(item);
-        } else {
+
+        }
+
+        else {
+
           bench.push(item);
+
         }
 
       });
 
+
       sortPlayers(starters);
+
       sortPlayers(bench);
 
+
       let html = `
+
         <div class="section-label">
           Starting Lineup
         </div>
+
       `;
 
+
       starters.forEach(item => {
+
         html += playerRow(item);
+
       });
 
+
       html += `
+
         <div class="section-label">
           Bench
         </div>
+
       `;
 
+
       bench.forEach(item => {
+
         html += playerRow(item);
+
       });
+
 
       rosterStatus.style.display =
         "none";
+
 
       rosterContainer.innerHTML =
         html;
@@ -721,8 +1175,10 @@
 
       console.error(error);
 
+
       liveRecord.textContent =
         "Unavailable";
+
 
       rosterStatus.innerHTML =
         `Sleeper roster data is temporarily unavailable.`;
@@ -731,9 +1187,11 @@
 
   }
 
+
   loadTeam();
 
 </script>
+
 
 </body>
 </html>
